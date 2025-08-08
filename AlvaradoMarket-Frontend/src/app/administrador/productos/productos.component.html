@@ -1,0 +1,54 @@
+<div class="productos-container">
+  <h1>Gestión de Productos</h1>
+
+  <div class="form-container">
+    <h2>Agregar/Editar Producto</h2>
+    <form (ngSubmit)="guardarProducto()">
+      <div class="form-group">
+        <label for="nombre">Nombre del Producto:</label>
+        <input type="text" id="nombre" name="nombre" [(ngModel)]="producto.nombre">
+      </div>
+
+      <div class="form-group">
+        <label for="marca">Marca del Producto:</label>
+        <input type="text" id="marca" name="marca" [(ngModel)]="producto.marca">
+      </div>
+
+      <div class="form-group">
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" name="precio" [(ngModel)]="producto.precio">
+      </div>
+
+      <div class="form-group">
+        <label for="detalles">Detalles:</label>
+        <textarea id="detalles" name="detalles" [(ngModel)]="producto.detalles"></textarea>
+      </div>
+
+      <button type="submit">Guardar Producto</button>
+    </form>
+  </div>
+
+  <div class="table-container">
+    <h2>Productos Existentes</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Marca</th>
+          <th>Precio</th>
+          <th>Detalles</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of productos">
+          <td>{{ p.idProducto }}</td>
+          <td>{{ p.nombre }}</td>
+          <td>{{ p.marca }}</td>
+          <td>{{ p.precio }}</td>
+          <td>{{ p.detalles }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
